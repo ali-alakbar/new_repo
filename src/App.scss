@@ -1,0 +1,165 @@
+// ======== Start Global Variables And Functions ==========
+
+$mainColor: #5bc0de;
+$mainWhite: #fff;
+$mainGray: #80808033;
+$mainRed: #ff4e56;
+$mainBorderRadius: 10px;
+$cursur: pointer;
+$mainWidth: 100%;
+
+@mixin btn() {
+  border: solid 1px $mainGray;
+  width: 100px;
+  height: 35px;
+  border-radius: $mainBorderRadius;
+  background: $mainColor;
+  color: $mainWhite;
+  cursor: $cursur;
+}
+
+@mixin closeBtn() {
+  background: $mainRed;
+  width: 40px;
+  height: 35px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 7px;
+  margin: 0 7px;
+  cursor: $cursur;
+  color: $mainWhite;
+}
+
+@mixin myInput() {
+  border: solid 1px $mainGray;
+  padding: 10px 20px;
+  margin: 10px;
+  font-style: italic;
+  border-radius: $mainBorderRadius;
+  width: 400px;
+}
+
+@mixin courseSection() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: solid 1px $mainGray;
+}
+
+/* Start Screen Responsive */
+
+/* Small Screens */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium Screens */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Big Screens */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Screen Responsive */
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+// ======== Start Global Variables ==========
+// ======== End Global Variables ==========
+* {
+  padding: 0%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  .leftSide {
+    display: flex;
+    align-items: center;
+  }
+  button {
+    @include btn();
+  }
+  input {
+    @include myInput();
+  }
+  .closeBtns {
+    @include closeBtn();
+    .close {
+      height: $mainWidth;
+      width: $mainWidth;
+      padding: 5px;
+    }
+  }
+}
+
+// ======== Start Heading ==========
+.special-heading {
+  text-align: end;
+  h1 {
+    font-weight: 100;
+  }
+}
+// Responsivity
+@media (max-width: 992px) {
+  .special-heading {
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+}
+
+// ======== End Heading ==========
+// ======== Start Form ========
+
+// Original Form
+.myForm {
+  text-align: center;
+}
+// Responsivity
+@media (max-width: 992px) {
+  .myForm {
+    input {
+      width: $mainWidth;
+    }
+  }
+}
+
+// New Form
+.newForm {
+  @include courseSection();
+}
+// Responsivity
+@media (max-width: 992px) {
+  .newForm {
+    padding: 0;
+  }
+}
+
+// ======== End Form ========
+
+// ======== Start Unordered List ========
+ul {
+  .warnning {
+    font-weight: 100;
+  }
+  li {
+    @include courseSection();
+  }
+}
+// ======== End Unordered List ========

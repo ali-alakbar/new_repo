@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ali-alakbar/new_reactJS/static/css/main.a0dad00d.css",
+    "main.js": "/ali-alakbar/new_reactJS/static/js/main.df4ed3ab.js",
+    "index.html": "/ali-alakbar/new_reactJS/index.html",
+    "main.a0dad00d.css.map": "/ali-alakbar/new_reactJS/static/css/main.a0dad00d.css.map",
+    "main.df4ed3ab.js.map": "/ali-alakbar/new_reactJS/static/js/main.df4ed3ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0dad00d.css",
+    "static/js/main.df4ed3ab.js"
+  ]
+}
