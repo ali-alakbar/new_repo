@@ -1,0 +1,94 @@
+{
+    "works" : [
+        {
+            "id" : 1,
+            "icon": "faLink",
+            "title": "Mobile Ux",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quos omnis voluptas ea ipsam! Voluptas."
+        },
+        {
+            "id" : 2,
+            "icon": "faBolt",
+            "title": "Web App",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quos omnis voluptas ea ipsam! Voluptas."
+        },
+        {
+            "id" : 3,
+            "icon": "faTachometerAlt",
+            "title": "Designs",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quos omnis voluptas ea ipsam! Voluptas."
+        }
+    ],
+
+    "portfolio" : [
+        {
+            "id":1,
+            "image": "./portfolio/portfolio-img1.jpg"
+        },
+        {
+            "id":2,
+            "image": "./portfolio/portfolio-img2.jpg"
+        },
+        {
+            "id":3,
+            "image": "./portfolio/portfolio-img3.jpg"
+        },
+        {
+            "id":4,
+            "image": "./portfolio/portfolio-img4.jpg"
+        },
+        {
+            "id":5,
+            "image": "./portfolio/portfolio-img5.jpg"
+        },
+        {
+            "id":6,
+            "image": "./portfolio/portfolio-img6.jpg"
+        },
+        {
+            "id":7,
+            "image": "./portfolio/portfolio-img4.jpg"
+        },
+        {
+            "id":8,
+            "image": "./portfolio/portfolio-img8.jpg"
+        }
+    ] ,
+    "social" : [
+        {
+            "id": 1,
+            "icon" : "faFacebookF",
+            "title" : "Follow Me on",
+            "body" : "Facebook"
+        },
+        {
+            "id": 2,
+            "icon" : "faTwitter",
+            "title" : "Tweet Me on",
+            "body" : "Twitter"
+        },
+        {
+            "id": 3,
+            "icon" : "faPinterest",
+            "title" : "Pin Me on",
+            "body" : "Pinterest"
+        }
+    ] ,
+    "skills" : [
+        {
+            "id" : "one",
+            "title" : "BootStrap",
+            "percentage" : "100%"
+        },
+        {
+            "id" : "two",
+            "title" : "CSS3",
+            "percentage" : "90%"
+        },
+        {
+            "id" : "three",
+            "title" : "HTML",
+            "percentage" : "80%"
+        }
+    ]
+}

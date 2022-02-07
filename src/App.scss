@@ -1,82 +1,15 @@
-// ======== Start Global Variables And Functions ==========
+/* ============ Start Global Variables ============  */
+$--mainWhite: #fff;
+$--mainBlack: #000;
+$--mainDarkGray: #304345;
+$--mainLightGray: #4f4f4f;
+$--mainOrange: #eb5424;
+$--mainTransition: all 0.3s ease-in-out;
+$--mainBackground: #f8f8f8;
 
-$mainColor: #5bc0de;
-$mainWhite: #fff;
-$mainGray: #80808033;
-$mainRed: #ff4e56;
-$mainBorderRadius: 10px;
-$cursur: pointer;
-$mainWidth: 100%;
+/* ============ End Global Variables ============  */
 
-@mixin btn() {
-  border: solid 1px $mainGray;
-  width: 100px;
-  height: 35px;
-  border-radius: $mainBorderRadius;
-  background: $mainColor;
-  color: $mainWhite;
-  cursor: $cursur;
-}
-
-@mixin closeBtn() {
-  background: $mainRed;
-  width: 40px;
-  height: 35px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 7px;
-  margin: 0 7px;
-  cursor: $cursur;
-  color: $mainWhite;
-}
-
-@mixin myInput() {
-  border: solid 1px $mainGray;
-  padding: 10px 20px;
-  margin: 10px;
-  font-style: italic;
-  border-radius: $mainBorderRadius;
-  width: 400px;
-}
-
-@mixin courseSection() {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: solid 1px $mainGray;
-}
-
-/* Start Screen Responsive */
-
-/* Small Screens */
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-/* Medium Screens */
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-/* Big Screens */
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
-/* End Screen Responsive */
-
-.container {
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-// ======== Start Global Variables ==========
-// ======== End Global Variables ==========
+/* ============ Start Global Rules ============  */
 * {
   padding: 0%;
   box-sizing: border-box;
@@ -87,79 +20,639 @@ $mainWidth: 100%;
   text-decoration: none;
 }
 
+@mixin btn {
+  padding: 10px 50px;
+  color: $--mainWhite;
+  background: $--mainOrange;
+  transition: $--mainTransition;
+  border: solid $--mainOrange;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  &:hover {
+    background-color: $--mainWhite;
+    border: solid $--mainOrange;
+    color: $--mainBlack;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  .leftSide {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  color: $--mainDarkGray;
+  margin: 0%;
+}
+h1 {
+  color: $--mainDarkGray;
+  font-size: 60px;
+  font-weight: normal;
+}
+.selectedSpan {
+  font-weight: 600;
+}
+/* Start Screen Responsive */
+/* Small  */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium  */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Big  */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Screen Responsive */
+/* ============ End Global Rules ============  */
+
+/* ============ Start Header Seciton ============ */
+
+.header {
+  height: 16vh;
+
+  .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
-  button {
-    @include btn();
-  }
-  input {
-    @include myInput();
-  }
-  .closeBtns {
-    @include closeBtn();
-    .close {
-      height: $mainWidth;
-      width: $mainWidth;
-      padding: 5px;
+    height: 100%;
+    .titleContainer {
+      h1 {
+        color: #000;
+        font-size: 30px !important;
+      }
+    }
+    .myList {
+      display: flex;
+      margin: 25px 0;
+      li {
+        padding: 35px 20px;
+        transition: all 0.3s ease-in-out;
+        border-bottom: solid 2px rgba(102, 102, 102, 0);
+        font-weight: 600;
+        &:hover {
+          a {
+            color: $--mainOrange;
+          }
+          border-bottom: solid 2px $--mainOrange;
+        }
+        a {
+          color: $--mainDarkGray;
+        }
+      }
+    }
+    .alignIcon {
+      display: none;
+      border: solid;
+      border-radius: 100%;
+      padding: 10px 15px;
+      transition: $--mainTransition;
+      &:hover {
+        cursor: pointer;
+        border: solid $--mainOrange;
+        color: $--mainOrange;
+      }
     }
   }
 }
 
-// ======== Start Heading ==========
-.special-heading {
-  text-align: end;
-  h1 {
-    font-weight: 100;
-  }
-}
-// Responsivity
+/* Medium  */
 @media (max-width: 992px) {
-  .special-heading {
-    text-align: center;
-    margin-bottom: 6rem;
+  .header {
+    .container {
+      .myList {
+        display: none;
+      }
+      .active {
+        display: grid;
+        background-color: $--mainWhite;
+        position: absolute;
+        right: 0;
+        top: 70px;
+        justify-items: center;
+        width: 100%;
+        li {
+          border-bottom: unset;
+          padding: 20px 0;
+          &:hover {
+            border-bottom: unset;
+          }
+        }
+      }
+      .alignIcon {
+        display: block;
+      }
+    }
+  }
+}
+// Small
+@media (max-width: 768px) {
+  .header {
+    height: 12vh;
+    .container {
+      .active {
+        top: 45px;
+      }
+    }
   }
 }
 
-// ======== End Heading ==========
-// ======== Start Form ========
+/* ============ End Header Seciton  ============ */
 
-// Original Form
-.myForm {
+/* ============ Start Landing  Seciton ============ */
+
+.landingPage {
+  background-image: url(./images/Home/home-bg.jpg);
+  height: 84vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
   text-align: center;
-}
-// Responsivity
-@media (max-width: 992px) {
-  .myForm {
-    input {
-      width: $mainWidth;
+  margin-bottom: 5rem;
+  background-attachment: fixed;
+  .container {
+    width: 40em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    h1 {
+      font-size: 60px;
+      color: $--mainDarkGray;
+      margin: 0.2em;
+      font-weight: normal;
+    }
+    h2 {
+      color: $--mainOrange;
+      font-size: 30px;
+    }
+    p {
+      font-size: 20px;
+      color: $--mainLightGray;
+      .uxDesigner {
+        color: $--mainOrange;
+        font-weight: 600;
+      }
+    }
+    .btnContainer {
+      button {
+        @include btn;
+      }
     }
   }
 }
 
-// New Form
-.newForm {
-  @include courseSection();
-}
-// Responsivity
+/* Medium  */
 @media (max-width: 992px) {
-  .newForm {
+  .landingPage {
+    .container {
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
+/* Big  */
+@media (max-width: 768px) {
+  .landingPage {
+    .container {
+      width: initial !important;
+    }
+  }
+}
+/* ============ End Landing Seciton ============ */
+
+/* ============ Start Work Seciton ============ */
+
+.workSection {
+  margin-bottom: 5rem;
+  .container {
+    text-align: center;
+
+    .boxesContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3em;
+      .box {
+        display: grid;
+        align-content: center;
+        width: 30%;
+        border: 1px solid;
+        padding: 15px;
+        height: 25em;
+        .content {
+          .icon {
+            font-size: 1.5em;
+            opacity: 0.7;
+          }
+          h2 {
+            width: 8em;
+            color: $--mainOrange;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+            border-bottom: solid 2px $--mainDarkGray;
+            padding-bottom: 1rem;
+          }
+          p {
+            color: $--mainLightGray;
+            font-size: 15px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .workSection {
+    .container {
+      .boxesContainer {
+        .box {
+          width: 45%;
+        }
+      }
+    }
+  }
+}
+// Small
+@media (max-width: 768px) {
+  .workSection {
+    .container {
+      .boxesContainer {
+        .box {
+          margin: 0 20px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+/* ============ End Work Seciton ============ */
+
+/* ============ Start Portfolio Section ============ */
+
+.portfolioSection {
+  background-color: $--mainBackground;
+  .container {
+    text-align: center;
+    width: 100%;
     padding: 0;
+    .otherContent {
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        li {
+          @include btn;
+          font-weight: normal;
+        }
+      }
+      .boxesContainer {
+        display: flex;
+        flex-wrap: wrap;
+        .imagesContainer {
+          width: 25%;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: "";
+            background-color: #eb522477;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+            opacity: 0;
+            transition: $--mainTransition;
+          }
+          &:hover {
+            &::before {
+              opacity: 1;
+            }
+            button {
+              z-index: 5;
+              opacity: 1;
+            }
+          }
+          img {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+          }
+          button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+            height: 3em;
+            width: 8em;
+            z-index: 2;
+            background-color: $--mainWhite;
+            color: $--mainDarkGray;
+            opacity: 0;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: normal;
+            font-style: italic;
+            border: solid 2px $--mainOrange;
+            &:hover {
+              color: $--mainOrange;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-// ======== End Form ========
-
-// ======== Start Unordered List ========
-ul {
-  .warnning {
-    font-weight: 100;
-  }
-  li {
-    @include courseSection();
+// Medium
+@media (max-width: 992px) {
+  .portfolioSection {
+    .container {
+      .otherContent {
+        .boxesContainer {
+          .imagesContainer {
+            width: 50%;
+          }
+        }
+      }
+    }
   }
 }
-// ======== End Unordered List ========
+// Small
+@media (max-width: 768px) {
+  .portfolioSection {
+    .container {
+      .otherContent {
+        ul {
+          li {
+            padding: 5px 20px;
+          }
+        }
+        .boxesContainer {
+          .imagesContainer {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ============ End Portfolio Section ============ */
+
+/* ============ Start Skills Section ============ */
+.skillsSection {
+  margin-bottom: 6rem;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h1 {
+      font-weight: normal;
+      font-size: 40px;
+    }
+    .selectedSpan {
+      font-weight: 600;
+    }
+    .infoSection {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #000;
+      width: 18rem;
+      .coloredSpan {
+        color: $--mainOrange;
+      }
+    }
+
+    .someSkills {
+      p {
+        color: $--mainLightGray;
+        font-size: 15px;
+        line-height: 30px;
+      }
+      .skills {
+        .skill {
+          border-bottom: 2px solid $--mainOrange;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+          padding-bottom: 15px;
+        }
+        .skill-one {
+          width: 100%;
+        }
+        .skill-two {
+          width: 90%;
+        }
+        .skill-three {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+// Small
+@media (max-width: 992px) {
+  .skillsSection {
+    .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+    }
+  }
+}
+/* ============ end Skills Section ============ */
+
+/* ============ Start About Section ============ */
+.aboutSection {
+  height: 84vh;
+  background-image: url("./images/creative/about-bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  .container {
+    position: relative;
+    .intro {
+      width: 50%;
+      position: absolute;
+      right: 0;
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 30px;
+        color: $--mainOrange;
+      }
+      p {
+        line-height: 1.8rem;
+        color: $--mainLightGray;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .aboutSection {
+    background-position: top;
+  }
+}
+@media (max-width: 768px) {
+  .aboutSection {
+    background-position-x: -20em;
+    .container {
+      .intro {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* ============ End About Section ============ */
+
+/* ============ Start Social Section ============ */
+.socialSection {
+  .boxesContainer {
+    overflow: hidden;
+    display: flex;
+    .box {
+      width: 34%;
+      color: $--mainWhite;
+      height: 15rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      // background: #4267b2;
+
+      .socialIconContainer {
+        background: $--mainWhite;
+        padding: 15px 20px;
+        .icon {
+          transition: $--mainTransition;
+          color: $--mainLightGray;
+        }
+      }
+      .moreContent {
+        h3 {
+          margin-bottom: -0.8rem;
+        }
+      }
+    }
+    .facebook {
+      background: #4267b2;
+    }
+    .twitter {
+      background: #00acee;
+    }
+    .pinterest {
+      background: #e60023;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .socialSection {
+    .boxesContainer {
+      display: flex;
+      flex-wrap: wrap;
+      .box {
+        width: 100%;
+      }
+    }
+  }
+}
+/* ============ End Social Section ============ */
+
+/* ================= Start Contact Section =================  */
+
+.contactSection {
+  .container {
+    text-align: center;
+    .specialHeading {
+      h1 {
+        font-size: 30px;
+        margin: 5rem;
+      }
+    }
+    form {
+      textarea {
+        width: 100%;
+        height: 136px;
+        padding: 3rem 1rem;
+        font-size: 18px;
+        border: solid 2px $--mainLightGray;
+        border-radius: 15px;
+        resize: vertical;
+        max-height: 360px !important;
+        min-height: 130px !important;
+        outline: none;
+        transition: $--mainTransition;
+        margin-bottom: 2rem;
+        &:focus {
+          border: solid 2px $--mainOrange;
+        }
+      }
+      input {
+        border: solid 2px $--mainLightGray;
+        border-radius: 15px;
+        width: 100%;
+        padding: 0 1rem;
+        height: 60px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        outline: none;
+        transition: $--mainTransition;
+
+        &:focus {
+          border: solid 2px $--mainOrange;
+        }
+      }
+      button {
+        @include btn();
+      }
+    }
+  }
+}
+
+/* ================= End Contact Section =================  */
+
+/* ================= Start Footer =================  */
+
+.footer {
+  margin: 2rem 0;
+  .container {
+    color: #888;
+    text-align: center;
+  }
+}
+
+/* ================= End Footer =================  */
